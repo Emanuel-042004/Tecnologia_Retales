@@ -1,0 +1,130 @@
+.card {
+  margin: 5px 10px;
+  padding: 10px; /* Puedes ajustar este valor según tus preferencias */
+  
+}
+
+.card-header mb-4{ 
+  background-color: rgb(204, 35, 35);
+  padding: 10px;
+}
+
+.card-header h4 {
+  color: #fff; /* Cambia #fff al color que desees para el texto */
+}
+
+.custom-margin {
+  margin-top: 100px; /* Ajusta el valor según tus necesidades */
+}
+
+
+.modal-title  {
+  color: rgb(204, 39, 39);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Establecer el color rojo para los encabezados h4 dentro del formulario */
+form h4 {
+  color: red;
+}
+
+/* Establecer el color rojo para todos los elementos hr dentro del formulario */
+form hr {
+  border-top: 2px solid red;
+  background-color: red;
+}
+
+.recuadro{
+margin-top: 200px;
+padding: auto;
+
+}
+
+.form-label{
+  color:black;
+
+}
+
+ .modal-body {
+  font-weight:normal;
+  color: #000000;
+  text-align: left;
+  
+}
+
+
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.navbar-brand img {
+  
+  width: 170px; 
+  height: 70px;
+  margin: 15px;
+  padding:5px;
+}
+
+.navbar-nav > li {
+  margin-right: 10px; 
+  margin-left: 20px;  
+  font-size: 20px;
+}
+
+
+hr {
+  border: none; /* Elimina la línea predeterminada */
+  border-top: 5px solid ;
+  background-color: red;
+}
+
+/* styles.css */
+
+.search-form {
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  border: 1px solid #000000;
+  border-radius: 25px;
+  padding: 5px;
+  width: 300px;
+  margin-left: px; /* Mover a la izquierda según tus preferencias */
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
+.search-button {
+  background-color: #000000;
+  border: none;
+  color: rgb(255, 255, 255);
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+
+.search-button:hover {
+  background-color: #c01313;
+  color: white;
+}

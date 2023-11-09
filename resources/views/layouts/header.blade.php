@@ -25,19 +25,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('welcome') }}">Inicio</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Equipos
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="" target=" ">Equipos Propios</a></li>
-                                <li><a class="dropdown-item" href="" target=" ">Equipos Alquilados</a>
-                                </li>
-                            </ul>
-                        </li>
+
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link active" aria-current="page" href="{{ route('equipos.index') }}">Equipos</a>
+                            </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

@@ -166,7 +166,7 @@
   </div>
 
   <div class="text-center">
-    <button type="submit" name="guardar" class="btn btn-dark shadow">Actualizar</button>
+    <button type="submit" name="guardar" class="btn btn-dark shadow" style="margin-bottom: 70px;">Actualizar</button>
   </div>
 
 </form>

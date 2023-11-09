@@ -128,3 +128,31 @@ hr {
   background-color: #c01313;
   color: white;
 }
+
+.rounded-table {
+  border-radius: 10px; /* Ajusta el valor según tu preferencia */
+  overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+  
+}
+
+/* Cambiar el color del paginador */
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li {
+    margin: 0 5px;
+    list-style-type: none;
+}
+
+.pagination a {
+    color: #000000; /* Cambia el color según tu preferencia */
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    text-decoration: underline;
+}
+
+

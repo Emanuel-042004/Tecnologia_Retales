@@ -17,11 +17,11 @@ class EquipoController extends Controller
         $filtro = $request->get('filtro', 'todos'); // Obtener el valor del filtro
     
         if ($filtro === 'propios') {
-            $equipos = Equipo::where('tipo_equipo', 'Propio')->latest()->paginate(9);
+            $equipos = Equipo::where('tipo_equipo', 'Propio')->latest()->paginate(20);
         } elseif ($filtro === 'alquilados') {
-            $equipos = Equipo::where('tipo_equipo', 'Alquilado')->latest()->paginate(9);
+            $equipos = Equipo::where('tipo_equipo', 'Alquilado')->latest()->paginate(20);
         } else {
-            $equipos = Equipo::latest()->paginate(9);
+            $equipos = Equipo::latest()->paginate(20);
         }
     
         return view('equipos', ['equipos' => $equipos]);

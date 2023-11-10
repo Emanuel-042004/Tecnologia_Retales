@@ -10,9 +10,9 @@
   </div> 
 </div><br>
 
-<form action="{{ route('equipos.update', $equipo) }}" method="post">
-@method('PUT') 
-  @csrf
+    <form action="{{ route('equipos.update', $equipo) }}" method="post">
+    @method('PUT') 
+      @csrf
 
   <div class="row">
     <div class="col-md-6">

@@ -33,15 +33,8 @@
                             </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Impresoras
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="" target=" ">Impresoras Propias</a></li>
-                                <li><a class="dropdown-item" href="" target=" ">Impresoras Propias</a>
-                                </li>
-                            </ul>
+                        <a class="nav-link active" aria-current="page" href="{{ route('impresoras.index') }}">Impresoras</a>
+                           
                         </li>
 
                         <li class="nav-item dropdown">

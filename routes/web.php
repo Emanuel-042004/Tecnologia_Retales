@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\ImpresoraController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::resource('impresoras', ImpresoraController::class, ['parameters' => [
+    'impresoras' => 'impresora'
+]]);
+
 
 Route::resource('equipos', EquipoController::class);
 Route::resource('edithe', HistorialController::class);

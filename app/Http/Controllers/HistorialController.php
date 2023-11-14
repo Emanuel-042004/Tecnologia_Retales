@@ -15,10 +15,14 @@ class HistorialController extends Controller
      */
     public function index(Equipo $equipo )
     {
-        $historial = Historial::where('serial', $equipo->serial)->get();
-        $historial = Historial::latest()->paginate(20);
+        $historial = Historial::where('serial', $equipo->serial)
+        ->latest()
+        ->paginate(20);
+              
         return view('historial', ['historial' => $historial, 'equipo' => $equipo]);
     }
+
+   
     /**
      * Show the form for creating a new resource.
      */

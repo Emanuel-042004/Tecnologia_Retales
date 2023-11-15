@@ -28,12 +28,12 @@
                             <a class="nav-link active" aria-current="page" href="{{ route('welcome') }}">Inicio</a>
                         </li>
 
-                            <li class="nav-item dropdown">
-                                    <a class="nav-link active" aria-current="page" href="{{ route('equipos.index') }}">Equipos</a>
+                            <li class="nav-item ">
+                                    <a class="nav-link active" aria-current="page" href="{{ route('equipos.index') }}">Equipos </a>
                             </li>
 
-                        <li class="nav-item dropdown">
-                        <a class="nav-link active" aria-current="page" href="{{ route('impresoras.index') }}">Impresoras</a>
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('impresoras.index') }}">Impresoras </a>
                            
                         </li>
 
@@ -42,7 +42,11 @@
                                 aria-expanded="false">
                                 Telefonos
                             </a>
-
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('celulares.index') }}">Celulares</a></li>
+                                <li><a class="dropdown-item" href="#">Telefonos IP</a></li>
+                               
+                            </ul>
                         </li>
 
                     </ul>

@@ -5,6 +5,7 @@ use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\ImpresoraController;
 use App\Http\Controllers\HistorialImpresoraController;
 use App\Http\Controllers\CelularController;
+use App\Http\Controllers\HistorialCelularController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -52,5 +53,9 @@ Route::resource('celulares', CelularController::class, ['parameters' => [
 ]]);
  
 
+Route::get('/celulares/{celular}/historial', [HistorialCelularController::class, 'index'])->name('celulares.historial.index');
 
-
+Route::post('/celulares/{celular}/historial', [HistorialCelularController::class, 'store'])->name('celulares.historial.store');
+Route::get('/celulares/{celular}/historial/{historialCelular}/edit', [HistorialCelularController::class, 'edit'])->name('celulares.historial.edit');
+Route::get('/celulares/{celular}/historial/{historialCelular}', [HistorialCelularController::class, 'update'])->name('celulares.historial.update');
+Route::delete('/celulares/{celular}/historial/{historialCelular}', [HistorialCelularController::class, 'destroy'])->name('celulares.historial.destroy');

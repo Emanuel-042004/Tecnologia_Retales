@@ -56,7 +56,7 @@
         <div class="card mb-4 shadow h-100 d-flex flex-column">
           <div class="card-header mb-4" style="background-color: rgb(204, 35, 35)">
             <h4 class="card-title"><strong>Serial:</strong> {{$celular->serial}}
-              <a href="" class="btn btn-danger float-end shadow" style="border-radius: 50px;">
+              <a href="{{ route ('celulares.historial.index', $celular->id) }}" class="btn btn-danger float-end shadow" style="border-radius: 50px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                   class="bi bi-clock-history " viewBox="0 0 16 16">
                   <path

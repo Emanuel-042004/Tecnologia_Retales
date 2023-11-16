@@ -32,7 +32,6 @@ return new class extends Migration
             $table->string('tarjeta_grafica')->nullable()->change();
             $table->string('ubicacion')->nullable()->change();
             $table->string('encargado')->nullable()->change();
-            $table->timestamps(0);
             $table->enum('tipo_dispositivo', ['Portatil', 'Escritorio', 'Todo_en_uno'])->nullable()->change();
         });
         //

@@ -44,7 +44,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('celulares.index') }}">Celulares</a></li>
-                                <li><a class="dropdown-item" href="#">Telefonos IP</a></li>
+                                <li><a class="dropdown-item" href="{{ route('telefonos.index') }}">Telefonos IP</a></li>
                                
                             </ul>
                         </li>

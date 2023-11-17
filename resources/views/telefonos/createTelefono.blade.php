@@ -14,7 +14,7 @@
           <div class="row">
             <div class="col">
               <div class="mb-3">
-                <label for="serial" class="form-label">Serial:</label>
+                <label for="serial" class="form-label">Codigo Interno:</label>
                 <input type="text" class="form-control shadow" id="serial" name="serial" required>
               </div>
               <div class="mb-3">
@@ -25,9 +25,9 @@
                 <label for="modelo" class="form-label">Modelo:</label>
                 <input type="text" class="form-control shadow" id="modelo" name="modelo">
               </div>
-              
+
               <div class="mb-3">
-                <label for="ubicacion" class="form-label">Ubicacion:</label> 
+                <label for="ubicacion" class="form-label">Ubicacion:</label>
                 <input type="text" class="form-control shadow" id="ubicacion" name="ubicacion">
               </div>
               <div class="mb-3">
@@ -44,8 +44,6 @@
               </div>
             </div>
           </div>
-
-
 
           <button type="submit" class="btn btn-dark" style="margin-top: 35px;">Guardar</button>
         </form>

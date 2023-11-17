@@ -40,7 +40,7 @@
     // Esperar a que el documento esté listo
     $(document).ready(function () {
         // Escuchar el clic en el botón "Eliminar"
-        $('.eliminar-historial-celular').on('click', function (event) {
+        $('.eliminar-historial-telefono').on('click', function (event) {
             event.preventDefault(); // Evitar que el enlace siga el href
             var form = $(this).closest('form'); // Obtener la referencia al formulario
 
@@ -64,10 +64,10 @@
     });
 </script>
 <div class="container mt-4">
-    <h1 style="color: black;">Historial de Celular : {{ $celular->serial }}</h1>
-    <a href="{{ route('celulares.index') }}" class="btn btn-dark shadow">Volver</a>
+    <h1 style="color: black;">Historial de Telefono : {{ $telefono->serial }}</h1>
+    <a href="{{ route('telefonos.index') }}" class="btn btn-dark shadow">Volver</a>
 
-    <div class="row" style="margin-top: 35px;">
+    <div class="row" style="margin-top: 40px;">
         <!-- Formulario para Agregar Historial en la parte izquierda -->
         <div class="col-md-6" style="margin-top: 35px;">
 
@@ -97,21 +97,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($historialCelular as $registro)
+                    @foreach($historialTelefono as $registro)
                     <tr>
                         <td>{{ $registro->fecha }}</td>
                         <td>{{ $registro->descripcion }}</td>
                         <td>
 
-                            <a href="{{ route('celulares.historial.edit', ['celular' => $celular->id, 'historialCelular' => $registro->id]) }}"
+                            <a href="{{ route('telefonos.historial.edit', ['telefono' => $telefono->id, 'historialTelefono' => $registro->id]) }}"
                                 class="btn btn-secondary shadow">Editar</a>
                             <form
-                                action="{{ route('celulares.historial.destroy', ['celular' => $celular->id, 'historialCelular' => $registro->id]) }}"
+                                action="{{ route('telefonos.historial.destroy', ['telefono' => $telefono->id, 'historialTelefono' => $registro->id]) }}"
                                 method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    class="btn btn-danger eliminar-historial-celular shadow">Eliminar</button>
+                                    class="btn btn-danger eliminar-historial-telefono shadow">Eliminar</button>
                             </form>
 
 

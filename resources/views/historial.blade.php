@@ -1,9 +1,9 @@
 @extends('layouts.header')
 
 @section('content')
-    <br><br><br><br><br>
 
-    @if (Session::has('success'))
+
+@if (Session::has('success'))
 <script>
     Swal.fire({
         title: '¡Agregado con Éxito!',
@@ -66,61 +66,63 @@
     });
 </script>
 
-    <div class="container mt-4">
-        <h1 style="color: black;">Historial del Equipo: {{ $equipo->serial }}</h1>
-        <a href="{{route('equipos.index')}}" class="btn btn-dark shadow">Volver</a> 
+<div class="container mt-4">
+    <h1>Historial del Equipo: {{ $equipo->serial }}</h1>
+    <a href="{{route('equipos.index')}}" class="btn btn-dark shadow">Volver</a>
 
-        <div class="row" >
-            <!-- Formulario para Agregar Historial en la parte izquierda -->
-            <div class="col-md-6">  
-              <h2>Agregar Historial</h2>
-                <form action="{{ route('historial.store', $equipo->id) }}" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="fecha" class="form-label">Fecha</label>
-                        <input type="date" class="form-control shadow" id="fecha" name="fecha" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="descripcion" class="form-label">Descripción</label>
-                        <textarea class="form-control shadow" id="descripcion" name="descripcion" rows="3" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark shadow">Agregar Historial</button>
-                </form>
-            </div><br><br>
+    <div class="row">
+        <!-- Formulario para Agregar Historial en la parte izquierda -->
+        <div class="col-md-6" style="margin-top: 35px;">
 
-            <!-- Tabla de Historial en la parte derecha -->
-            <div class="col-md-6">
-                <table class="table table-striped table-hover table-dark shadow rounded-table">
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Descripción</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($historial as $registro)
-                            <tr>
-                                <td>{{ $registro->fecha }}</td>
-                                <td>{{ $registro->descripcion }}</td>
-                                <td>
-                                <a href="{{ route('historial.edit', ['equipo' => $equipo, 'historial' => $registro]) }}" class="btn btn-secondary shadow">Editar</a>
+            <form action="{{ route('historial.store', $equipo->id) }}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label for="fecha" class="form-label">Fecha</label>
+                    <input type="date" class="form-control shadow" id="fecha" name="fecha" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control shadow" id="descripcion" name="descripcion" rows="3"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger shadow">Agregar Historial</button>
+            </form>
+        </div><br><br>
 
-                                <form action="{{ route('historial.destroy', ['equipo' => $equipo->id, 'historial' => $registro->id]) }}" method="POST" class="d-inline">
+        <!-- Tabla de Historial en la parte derecha -->
+        <div class="col-md-6">
+            <table class="table table-striped table-hover table-dark shadow rounded-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($historial as $registro)
+                    <tr>
+                        <td>{{ $registro->fecha }}</td>
+                        <td>{{ $registro->descripcion }}</td>
+                        <td>
+                            <a href="{{ route('historial.edit', ['equipo' => $equipo, 'historial' => $registro]) }}"
+                                class="btn btn-secondary shadow">Editar</a>
+
+                            <form
+                                action="{{ route('historial.destroy', ['equipo' => $equipo->id, 'historial' => $registro->id]) }}"
+                                method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger eliminar-historial shadow">Eliminar</button>
                             </form>
 
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                {{$historial->links()}}
-            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {{$historial->links()}}
         </div>
     </div>
+</div>
 @endsection
-
-

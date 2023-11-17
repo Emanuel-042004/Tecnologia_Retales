@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistorialTelefono;
 use Illuminate\Http\Request;
-use App\Models\HistorialCelular;
-use App\Models\Celular;
+use App\Models\Telefono;
 use Illuminate\View\View;
 
-class HistorialCelularController extends Controller
+class HistorialTelefonoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Celular $celular)
+    public function index(Telefono $telefono)
     {
-        $historialCelular = HistorialCelular::where('serial', $celular->serial)
+        $historialTelefono = HistorialTelefono::where('serial', $telefono->serial)
             ->latest()
             ->paginate(20);
 
-        return view('telefonos.historialCelular', ['historialCelular' => $historialCelular, 'celular' => $celular]); //
+        return view('telefonos.historialTelefono', ['historialTelefono' => $historialTelefono, 'telefono' => $telefono]); //
 
     }
 
@@ -33,21 +33,21 @@ class HistorialCelularController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Celular $celular)
+    public function store(Request $request, Telefono $telefono)
     {
         $request->validate([
             'fecha' => 'required|date',
             'descripcion' => 'required|string',
         ]);
 
-        $historial = new HistorialCelular([
+        $historial = new HistorialTelefono([
             'fecha' => $request->input('fecha'),
             'descripcion' => $request->input('descripcion'),
-            'serial' => $celular->serial,
+            'serial' => $telefono->serial,
         ]);
 
         $historial->save(); //
-        return redirect()->route('celulares.historial.index', $celular->id)
+        return redirect()->route('telefonos.historial.index', $telefono->id)
             ->with('success', 'Registro de historial agregado con éxito');
     }
 
@@ -62,36 +62,38 @@ class HistorialCelularController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Celular $celular, HistorialCelular $historialCelular)
+    public function edit(Telefono $telefono, HistorialTelefono $historialTelefono)
     {
-        return view('telefonos.edit_h_Celular', ['historialCelular' => $historialCelular, 'celular' => $celular]); //
+        return view('telefonos.edit_h_Telefono', ['historialTelefono' => $historialTelefono, 'telefono' => $telefono]); //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Celular $celular, HistorialCelular $historialCelular)
+    public function update(Request $request, Telefono $telefono, HistorialTelefono $historialTelefono)
     {
         $request->validate([
             'fecha' => 'required|date',
             'descripcion' => 'required|string',
         ]);
 
-        $historialCelular->update([
+        $historialTelefono->update([
             'fecha' => $request->input('fecha'),
             'descripcion' => $request->input('descripcion'),
 
         ]);
-        return redirect()->route('celulares.historial.index', [$celular->id, $historialCelular->id])->with('update_success', 'Registro de historial agregado con éxito'); //
+        return redirect()->route('telefonos.historial.index', [$telefono->id, $historialTelefono->id])->with('update_success', 'Registro de historial agregado con éxito'); //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Celular $celular, HistorialCelular $historialCelular)
+    public function destroy(Telefono $telefono, HistorialTelefono $historialTelefono)
     {
-        $historialCelular->delete();
+        $historialTelefono->delete();
 
-        return redirect()->route('celulares.historial.index', $celular->id)->with('delete_success', 'Historial eliminado con éxito'); //
+        return redirect()->route('telefonos.historial.index', $telefono->id)->with('delete_success', 'Historial eliminado con éxito'); //
     }
 }
+
+

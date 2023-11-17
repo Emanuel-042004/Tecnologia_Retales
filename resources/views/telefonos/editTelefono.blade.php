@@ -17,8 +17,9 @@
           <div class="row">
             <div class="col">
               <div class="mb-3">
-                <label for="serial" class="form-label">Serial:</label>
-                <input type="text" class="form-control shadow" id="serial" name="serial" value="{{ $telefono->serial }}" required>
+                <label for="serial" class="form-label">Codigo Interno:</label>
+                <input type="text" class="form-control shadow" id="serial" name="serial" value="{{ $telefono->serial }}"
+                  required>
               </div>
               <div class="mb-3">
                 <label for="marca" class="form-label">Marca:</label>
@@ -26,16 +27,19 @@
               </div>
               <div class="mb-3">
                 <label for="modelo" class="form-label">Modelo:</label>
-                <input type="text" class="form-control shadow" id="modelo" name="modelo" value="{{ $telefono->modelo }}">
+                <input type="text" class="form-control shadow" id="modelo" name="modelo"
+                  value="{{ $telefono->modelo }}">
               </div>
-              
+
               <div class="mb-3">
-                <label for="ubicacion" class="form-label">Ubicacion:</label> 
-                <input type="text" class="form-control shadow" id="ubicacion" name="ubicacion" value="{{ $telefono->ubicacion }}">
+                <label for="ubicacion" class="form-label">Ubicacion:</label>
+                <input type="text" class="form-control shadow" id="ubicacion" name="ubicacion"
+                  value="{{ $telefono->ubicacion }}">
               </div>
               <div class="mb-3">
                 <label for="departamento" class="form-label">Departamento:</label>
-                <input type="text" class="form-control shadow" id="departamento" name="departamento" value="{{ $telefono->departamento }}">
+                <input type="text" class="form-control shadow" id="departamento" name="departamento"
+                  value="{{ $telefono->departamento }}">
               </div>
               <div class="mb-3">
                 <label for="ip" class="form-label">IP:</label>
@@ -43,7 +47,8 @@
               </div>
               <div class="mb-3">
                 <label for="extension" class="form-label">Extension:</label>
-                <input type="text" class="form-control shadow" id="extension" name="extension" value="{{ $telefono->extension }}">
+                <input type="text" class="form-control shadow" id="extension" name="extension"
+                  value="{{ $telefono->extension }}">
               </div>
             </div>
           </div>

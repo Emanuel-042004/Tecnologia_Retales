@@ -18,7 +18,7 @@
                         <option value="alquilados" {{ Request::get('filtro')==='alquilados' ? 'selected' : '' }}>
                             Alquilados</option>
                     </select>
-                    <button type="submit" class="btn btn-light float-end">Filtrar</button>
+                    <button type="submit" class="btn btn-light float-end"><strong>Filtrar</strong></button>
                 </div>
             </form>
         </div>
@@ -63,14 +63,14 @@
     @endif
 
 
-     <!--REGISTROS -->
+    <!--REGISTROS -->
     <div class="col-12 mt-4">
         <div class="row">
             @foreach($equipos as $equipo)
             <div class="col-md-4">
                 <div class="card mb-4 shadow">
-                    <div class="card-header mb-4" style="background-color: rgb(204, 35, 35)">
-                        <h4 class="card-title "><strong>Serial:</strong>
+                    <div class="card-header mb-4">
+                        <h4 class="card-title "><strong>Cod Interno:</strong>
                             {{$equipo->serial}}
 
                             <a href="{{ route('historial.index', $equipo->id) }}"

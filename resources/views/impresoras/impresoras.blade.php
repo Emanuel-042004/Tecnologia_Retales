@@ -36,7 +36,7 @@
             title: '¡Agregada con Éxito!',
             text: '{{ Session::get('success') }}',
             icon: 'success',
-            timer: 2000 
+            timer: 2000
         });
     </script>
     @endif
@@ -47,7 +47,7 @@
             title: '¡Actualizada con Éxito!',
             text: '{{ Session::get('update_success') }}',
             icon: 'success',
-            timer: 2000 
+            timer: 2000
         });
     </script>
     @endif
@@ -58,11 +58,11 @@
             title: '¡Eliminado con Éxito!',
             text: '{{ Session::get('delete_success') }}',
             icon: 'success',
-            timer: 2000 
+            timer: 2000
         });
     </script>
     @endif
-          
+
     <!--REGISTOS-->
     <div class="col-12 mt-4">
         <div class="row">
@@ -70,7 +70,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card mb-4 shadow h-100 d-flex flex-column">
                     <div class="card-header mb-4" style="background-color: rgb(204, 35, 35)">
-                        <h4 class="card-title"><strong>Serial:</strong> {{$impresora->serial}}
+                        <h4 class="card-title"><strong>Cod Interno:</strong> {{$impresora->serial}}
                             <a href="{{ route ('impresoras.historial.index', $impresora->id) }}"
                                 class="btn btn-danger float-end shadow" style="border-radius: 50px;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -126,11 +126,11 @@
                 </div>
             </div>
             <script>
-               
+
                 $(document).ready(function () {
-                   
+
                     $('.eliminar-impresora').on('click', function () {
-                        
+
                         Swal.fire({
                             title: '¿Estás seguro?',
                             text: 'Esta acción no se puede deshacer',
@@ -142,7 +142,7 @@
                             cancelButtonText: 'Cancelar'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                
+
                                 $(this).closest('form').submit();
                             }
                         });

@@ -13,7 +13,7 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="serial" class="form-label">Serial:</label>
+                        <label for="serial" class="form-label">Codigo Interno:</label>
                         <input type="text" class="form-control shadow" id="serial" name="serial"
                             value="{{ $impresora->serial }}" required>
                     </div>

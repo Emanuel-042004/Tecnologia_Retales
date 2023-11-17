@@ -1,16 +1,23 @@
+.container{
+  margin-top: 190px;
+}
+
+
+
 .card {
   margin: 5px 10px;
   padding: 10px; /* Puedes ajustar este valor según tus preferencias */
   
 }
 
-.card-header mb-4{ 
-  background-color: rgb(204, 35, 35);
+.card-header.mb-4 { 
+  background: linear-gradient(to right, rgb(255, 54, 54), #ffffff);
   padding: 10px;
 }
 
+
 .card-header h4 {
-  color: #fff; /* Cambia #fff al color que desees para el texto */
+  color: rgb(0, 0, 0); /* Cambia #fff al color que desees para el texto */
 }
 
 .custom-margin {

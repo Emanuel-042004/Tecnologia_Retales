@@ -6,7 +6,7 @@
   <div class="col-12">
     <div>
       <h1 class="text-black ">Telefonos
-      <img width="70" height="70" src="https://img.icons8.com/3d-fluency/94/phone-office.png" alt="phone-office"/>
+        <img width="70" height="70" src="https://img.icons8.com/3d-fluency/94/phone-office.png" alt="phone-office" />
       </h1>
     </div>
     <br>
@@ -22,7 +22,7 @@
       title: '¡Agregado con Éxito!',
       text: '{{ Session::get('success') }}',
       icon: 'success',
-      timer: 2000 
+      timer: 2000
     });
   </script>
   @endif
@@ -33,7 +33,7 @@
       title: '¡Actualizado con Éxito!',
       text: '{{ Session::get('update_success') }}',
       icon: 'success',
-      timer: 2000 
+      timer: 2000
     });
   </script>
   @endif
@@ -44,35 +44,35 @@
       title: '¡Eliminado con Éxito!',
       text: '{{ Session::get('delete_success') }}',
       icon: 'success',
-      timer: 2000 
+      timer: 2000
     });
   </script>
   @endif
 
   <script>
-        
-        $(document).ready(function () {
-          
-          $('.eliminar-telefono').on('click', function () {
-            
-            Swal.fire({
-              title: '¿Estás seguro?',
-              text: 'Esta acción no se puede deshacer',
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Sí, eliminar',
-              cancelButtonText: 'Cancelar'
-            }).then((result) => {
-              if (result.isConfirmed) {
-               
-                $(this).closest('form').submit();
-              }
-            });
-          });
+
+    $(document).ready(function () {
+
+      $('.eliminar-telefono').on('click', function () {
+
+        Swal.fire({
+          title: '¿Estás seguro?',
+          text: 'Esta acción no se puede deshacer',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, eliminar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+
+            $(this).closest('form').submit();
+          }
         });
-      </script>
+      });
+    });
+  </script>
 
   <div class="col-12 mt-4">
     <div class="row">
@@ -81,7 +81,8 @@
         <div class="card mb-4 shadow h-100 d-flex flex-column">
           <div class="card-header mb-4" style="background-color: rgb(204, 35, 35)">
             <h4 class="card-title"><strong>Cod Interno:</strong> {{$telefono->serial}}
-              <a href="" class="btn btn-danger float-end shadow" style="border-radius: 50px;">
+              <a href="{{ route ('telefonos.historial.index', $telefono->id) }}" class="btn btn-danger float-end shadow"
+                style="border-radius: 50px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                   class="bi bi-clock-history " viewBox="0 0 16 16">
                   <path
@@ -101,8 +102,8 @@
             <p class="card-text text-black"><strong>Extension:</strong> {{$telefono->extension}}</p>
             <p class="card-text text-black"><strong>Ubicacion:</strong> {{$telefono->ubicacion}}</p>
             <p class="card-text text-black"><strong>Departamento:</strong> {{$telefono->departamento}}</p>
-           
-          
+
+
             <!-- BOTON EDITAR -->
             <a href="#" class="btn btn-dark shadow" data-bs-toggle="modal"
               data-bs-target="#editarTelefonoModal{{ $telefono->id }}" style="border-radius: 50px;">
@@ -116,7 +117,7 @@
             </a>
             @include('telefonos.editTelefono')
 
-          
+
 
             <!--BOTON ELIMINAR -->
             <form action="{{route('telefonos.destroy',$telefono->id )}}" class="d-inline shadow" method="POST">
@@ -134,7 +135,7 @@
           </div>
         </div>
       </div>
-  
+
       @endforeach
     </div>
   </div>

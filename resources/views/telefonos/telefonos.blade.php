@@ -11,8 +11,7 @@
     </div>
     <br>
     <div>
-      <a href="#" class="btn btn-dark shadow" data-bs-toggle="modal" data-bs-target="#agregarTelefonoModal">Agregar
-        Celular</a>
+      <a href="#" class="btn btn-dark shadow" data-bs-toggle="modal" data-bs-target="#agregarTelefonoModal">Agregar Teléfono</a>
     </div>
     @include('telefonos.createTelefono')
   </div>

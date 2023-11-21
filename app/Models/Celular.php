@@ -22,4 +22,28 @@ class Celular extends Model
         'ubicacion',
         'departamento'
     ];
+    public function mantenimiento(){
+        return $this->morphOne(Mantenimiento::class,'mantenible');
+    }
+    protected static function booted()
+    {
+        static::deleting(function ($celular) {
+            $celular->mantenimiento()->delete();
+        });
+    }
+
+    public function scopeFilter($query, $search)
+    {
+        if ($search) {
+            $query->where('serial', 'like', '%' . $search . '%')
+                  ->orWhere('encargado', 'like', '%' . $search . '%')
+                  ->orWhere('ubicacion', 'like', '%' . $search . '%')
+                  ->orWhere('marca', 'like', '%' . $search . '%')
+                  ->orWhere('imei_1', 'like', '%' . $search . '%')
+                  ->orWhere('imei_2', 'like', '%' . $search . '%')
+                  ->orWhere('sim', 'like', '%' . $search . '%')
+                  ->orWhere('departamento', 'like', '%' . $search . '%');
+        }
+        return $query;
+    }
 }

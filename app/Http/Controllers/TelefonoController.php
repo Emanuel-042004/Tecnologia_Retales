@@ -12,8 +12,10 @@ class TelefonoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search');
+         $telefonos = Telefono::filter($search)->paginate(20);
         $telefonos = Telefono::all();
         return view('telefonos.telefonos', ['telefonos' => $telefonos]); // //
     }

@@ -1,13 +1,15 @@
 <?php
 
 use App\Http\Controllers\EquipoController;
-use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\HistorialEquipoController;
 use App\Http\Controllers\ImpresoraController;
 use App\Http\Controllers\HistorialImpresoraController;
 use App\Http\Controllers\CelularController;
 use App\Http\Controllers\HistorialCelularController;
 use App\Http\Controllers\TelefonoController;
 use App\Http\Controllers\HistorialTelefonoController;
+use App\Http\Controllers\MantenimientoController;
+use App\Http\Controllers\SearchController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -28,15 +30,19 @@ Route::get('/', function () {
 
 
 
+
+
 Route::resource('equipos', EquipoController::class);
 
-Route::resource('edithe', HistorialController::class);
-Route::get('/detalles/{equipo}', [EquipoController::class, 'verDetalles']);
-Route::get('/historial/{equipo}', [HistorialController::class, 'index'])->name('historial.index');
-Route::post('/historial/{equipo}/store', [HistorialController::class, 'store'])->name('historial.store');
-Route::get('/historial/{equipo}/edit/{historial}', [HistorialController::class, 'edit'])->name('historial.edit');
-Route::get('/historial/{equipo}/update/{historial}', [HistorialController::class, 'update'])->name('historial.update');
-Route::delete('/historial/{equipo}/{historial}', [HistorialController::class, 'destroy'])->name('historial.destroy');
+Route::resource('equipos.historial', HistorialEquipoController::class)->except(['create', 'show']);
+Route::get('/equipos/detalles/{equipo}', [EquipoController::class, 'verDetalles']);
+
+// Si aún necesitas rutas específicas para HistorialEquipoController, puedes agregarlas aquí
+Route::get('/equipos/historial/{equipo}', [HistorialEquipoController::class, 'index'])->name('historial.index');
+Route::post('/equipos/historial/{equipo}/store', [HistorialEquipoController::class, 'store'])->name('historial.store');
+Route::get('/equipos/historial/{equipo}/edit/{historial}', [HistorialEquipoController::class, 'edit'])->name('historial.edit');
+Route::get('/equipos/historial/{equipo}/update/{historial}', [HistorialEquipoController::class, 'update'])->name('historial.update');
+Route::delete('/equipos/historial/{equipo}/{historial}', [HistorialEquipoController::class, 'destroy'])->name('historial.destroy');
 
 Route::resource('impresoras', ImpresoraController::class, ['parameters' => [
     'impresoras' => 'impresora'
@@ -72,3 +78,17 @@ Route::post('/telefonos/{telefono}/historial', [HistorialTelefonoController::cla
 Route::get('/telefonos/{telefono}/historial/{historialTelefono}/edit', [HistorialTelefonoController::class, 'edit'])->name('telefonos.historial.edit');
 Route::get('/telefonos/{telefono}/historial/{historialTelefono}', [HistorialTelefonoController::class, 'update'])->name('telefonos.historial.update');
 Route::delete('/telefonos/{telefono}/historial/{historialTelefono}', [HistorialTelefonoController::class, 'destroy'])->name('telefonos.historial.destroy');
+
+// routes/web.php
+Route::resource('mantenimientos', MantenimientoController::class);
+Route::get('mantenimientos/{tipo}/{id}', [MantenimientoController::class, 'index'])->name('mantenimientos.index');
+Route::post('mantenimientos/{tipo}/{id}', [MantenimientoController::class, 'store'])->name('mantenimientos.store');
+Route::get('mantenimientos/{tipo}/{id}/edit/{mantenimientoId}', [MantenimientoController::class, 'edit'])->name('mantenimientos.edit');
+Route::put('mantenimientos/{tipo}/{id}/{mantenimientoId}', [MantenimientoController::class, 'update'])->name('mantenimientos.update');
+Route::delete('/mantenimientos/{tipo}/{id}/{mantenimientoId}', [MantenimientoController::class, 'destroy'])->name('mantenimientos.destroy');
+
+
+Route::resource('search',SearchController::class);
+Route::get('/search', [SearchController::class, 'index'])->name('search.index');
+
+

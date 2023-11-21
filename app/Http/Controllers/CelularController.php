@@ -10,8 +10,10 @@ use Illuminate\Http\RedirectResponse;
 class CelularController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search');
+        $celulares = Celular::filter($search)->paginate(20);
         $celulares = Celular::all();
         return view('telefonos.celulares', ['celulares' => $celulares]); //
     }

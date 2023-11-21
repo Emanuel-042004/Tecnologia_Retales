@@ -28,7 +28,31 @@ class Equipo extends Model
         'gen_procesador',
         'direccionIP',
         'tarjeta_grafica',
-        'ubicacion',
+        'ubicacion', 
         'encargado',
     ];
+
+    public function mantenimiento(){
+        return $this->morphOne(Mantenimiento::class,'mantenible');
+    }
+    protected static function booted()
+    {
+        static::deleting(function ($equipo) {
+            $equipo->mantenimiento()->delete();
+        });
+    }
+
+    public function scopeFilter($query, $search)
+    {
+        if ($search) {
+            $query->where('serial', 'like', '%' . $search . '%')
+                  ->orWhere('encargado', 'like', '%' . $search . '%')
+                  ->orWhere('marca', 'like', '%' . $search . '%')
+                  ->orWhere('modelo', 'like', '%' . $search . '%')
+                  ->orWhere('anydesk', 'like', '%' . $search . '%')
+                  ->orWhere('direccionIP', 'like', '%' . $search . '%')
+                  ->orWhere('ubicacion', 'like', '%' . $search . '%');
+        }
+        return $query;
+    }
 }

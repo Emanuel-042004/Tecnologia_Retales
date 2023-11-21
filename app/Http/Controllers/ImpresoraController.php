@@ -12,6 +12,9 @@ class ImpresoraController extends Controller
   
     public function index(Request $request): View
     {
+
+        $search = $request->input('search');
+         $impresoras = Impresora::filter($search)->paginate(20);
         $filtro = $request->get('filtro', 'todas'); // Obtener el valor del filtro
 
         if ($filtro === 'propias') {

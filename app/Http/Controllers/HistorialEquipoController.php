@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Historial;
+use App\Models\HistorialEquipo;
 use App\Models\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 
-class HistorialController extends Controller
+class HistorialEquipoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Equipo $equipo )
     {
-        $historial = Historial::where('serial', $equipo->serial)
+        $historial = HistorialEquipo::where('serial', $equipo->serial)
         ->latest()
         ->paginate(20);
               
-        return view('historial', ['historial' => $historial, 'equipo' => $equipo]);
+        return view('equipos.historial', ['historial' => $historial, 'equipo' => $equipo]);
     }
 
    
@@ -41,7 +41,7 @@ class HistorialController extends Controller
             'descripcion' => 'required|string',
         ]);
     
-        $historial = new Historial([
+        $historial = new HistorialEquipo([
             'fecha' => $request->input('fecha'),
             'descripcion' => $request->input('descripcion'),
             'serial' => $equipo->serial,
@@ -49,7 +49,7 @@ class HistorialController extends Controller
     
         $historial->save();
     
-        return redirect()->route('historial.index', $equipo->id)->with('success', 'Registro de historial agregado con éxito');
+        return redirect()->route('equipos.historial.index', $equipo->id)->with('success', 'Registro de historial agregado con éxito');
     }
 
     /**
@@ -63,9 +63,9 @@ class HistorialController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Equipo $equipo, Historial $historial)
+    public function edit(Equipo $equipo, HistorialEquipo $historial)
     {
-        return view('edithe', ['equipo' => $equipo, 'historial' => $historial]);
+        return view('equipos.edit_h_Equipo', ['equipo' => $equipo, 'historial' => $historial]);
         
 
     }
@@ -74,7 +74,7 @@ class HistorialController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Equipo $equipo, Historial $historial)
+    public function update(Request $request, Equipo $equipo, HistorialEquipo $historial)
     {
         $request->validate([
             'fecha' => 'required|date',
@@ -86,16 +86,16 @@ class HistorialController extends Controller
             'descripcion' => $request->input('descripcion'),
         ]);
 
-        return redirect()->route('historial.index', [$equipo->id, $historial->id])->with('update_success', 'Historial actualizado con éxito');
+        return redirect()->route('equipos.historial.index', [$equipo->id, $historial->id])->with('update_success', 'Historial actualizado con éxito');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Equipo $equipo, Historial $historial)
+    public function destroy(Equipo $equipo, HistorialEquipo $historial)
     {
         $historial->delete();
 
-        return redirect()->route('historial.index', $equipo->id)->with('delete_success', 'Historial eliminado ');
+        return redirect()->route('equipos.historial.index', $equipo->id)->with('delete_success', 'Historial eliminado ');
     }
 }

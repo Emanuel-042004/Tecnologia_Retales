@@ -35,30 +35,24 @@
                                 <a class="nav-link active" aria-current="page"
                                     href="{{ route('equipos.index') }}">Equipos </a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page"
                                     href="{{ route('impresoras.index') }}">Impresoras </a>
-
                             </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Telefonos
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ route('celulares.index') }}">Celulares</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('telefonos.index') }}">Telefonos IP</a>
-                                    </li>
-
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page"
+                                href="{{ route('celulares.index') }}">Celulares</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page"
+                                href="{{ route('telefonos.index') }}">Telefonos </a>
+                            </li>
+                           
+                            
                         </ul>
-                        <form class="search-form">
-                            <input class="search-input" type="search" placeholder="Search" aria-label="Search">
+                        <form class="search-form" method="GET" action="{{ route('search.index') }}">
+                            <input class="search-input" type="search" name="search" placeholder="Search"
+                                aria-label="Search">
                             <button type="submit" class="search-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
                                     class="bi bi-search" viewBox="0 0 16 16">
@@ -72,11 +66,8 @@
             </nav>
         </header>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

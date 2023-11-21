@@ -24,12 +24,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route::get('/', [EquipoController::class, 'index']);
+
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-
-
+    return view('inicio');
+})->name('bienvenida');
 
 
 Route::resource('equipos', EquipoController::class);
@@ -92,3 +91,7 @@ Route::resource('search',SearchController::class);
 Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

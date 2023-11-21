@@ -1,5 +1,3 @@
-@extends('layouts.header')
-@section('content')
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -141,4 +139,4 @@
         </div>
     </body>
 </html>
-@endsection
+

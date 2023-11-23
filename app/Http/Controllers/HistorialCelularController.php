@@ -16,7 +16,7 @@ class HistorialCelularController extends Controller
     {
         $historialCelular = HistorialCelular::where('serial', $celular->serial)
             ->latest()
-            ->paginate(20);
+            ->paginate(6);
 
         return view('telefonos.historialCelular', ['historialCelular' => $historialCelular, 'celular' => $celular]); //
 

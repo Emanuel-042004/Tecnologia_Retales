@@ -9,22 +9,23 @@ use Illuminate\Http\RedirectResponse;
 
 class CelularController extends Controller
 {
-    
+
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $celulares = Celular::filter($search)->paginate(20);
+        $celulares = Celular::filter($search)->paginate(10);
         $celulares = Celular::all();
+        $celulares = Celular::latest()->paginate(12);
         return view('telefonos.celulares', ['celulares' => $celulares]); //
     }
 
-   
+
     public function create(): View
     {
         return view('create');
     }
 
-   
+
     public function store(Request $request): RedirectResponse
     {
         $data = $request->all();
@@ -36,20 +37,20 @@ class CelularController extends Controller
         return redirect()->route('celulares.index')->with('success', 'Celular agregado con éxito');
     }
 
-   
+
     public function show(Celular $celular)
     {
-        
+
     }
 
-   
+
     public function edit(Celular $celular)
     {
 
         return view('edit', ['celular' => $celular]);
     }
 
-   
+
     public function update(Request $request, Celular $celular): RedirectResponse
     {
         $data = $request->all();
@@ -61,7 +62,7 @@ class CelularController extends Controller
         return redirect()->route('celulares.index')->with('success', 'Celular actualizado con éxito');
     }
 
-    
+
     public function destroy(Celular $celular)
     {
         $celular->delete();

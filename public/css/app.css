@@ -1,8 +1,30 @@
+body {
+  background: linear-gradient(334deg, #ff0000, #ffffff, #ffc0cb, #000000);
+  background-size: 180% 180%;
+  background-repeat: no-repeat;
+  animation: gradient-animation 10s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  -webkit-animation: gradient-animation 20s ease infinite;
+  
+}
 .container{
-  margin-top: 190px;
+  margin-top: 300px;
+  font-family: 'Poppins', sans-serif;
 }
 
+@keyframes gradient-animation {
+  0% {
+      background-position: 0% 50%;
+  }
 
+  50% {
+      background-position: 100% 50%;
+  }
+
+  100% {
+      background-position: 0% 50%;
+  }
+}
 
 .card {
   margin: 5px 10px;

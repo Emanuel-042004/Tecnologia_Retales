@@ -17,7 +17,7 @@ class HistorialImpresoraController extends Controller
     {
         $historialImpresora = HistorialImpresora::where('serial', $impresora->serial)
             ->latest()
-            ->paginate(20);
+            ->paginate(6);
     
             return view('impresoras.historial', ['historialImpresora' => $historialImpresora, 'impresora' => $impresora]);
 

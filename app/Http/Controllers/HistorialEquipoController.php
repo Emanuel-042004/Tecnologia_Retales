@@ -17,7 +17,7 @@ class HistorialEquipoController extends Controller
     {
         $historial = HistorialEquipo::where('serial', $equipo->serial)
         ->latest()
-        ->paginate(20);
+        ->paginate(6);
               
         return view('equipos.historial', ['historial' => $historial, 'equipo' => $equipo]);
     }

@@ -57,7 +57,7 @@
 
 <div class="container mt-4">
     
-   <h1 style="color: black;">Mantenimientos {{ $tipoObjeto }}: {{ $mantenible->serial }}</h1>
+   <h1 style="color: black;"><strong>Mantenimientos {{ $tipoObjeto }}: {{ $mantenible->serial }}</strong></h1>
     <a href="{{ route($tipo . '.index') }}" class="btn btn-dark shadow mb-4">Volver</a>
 
 
@@ -75,7 +75,7 @@
         <button type="submit" class="btn btn-primary">Agregar Mantenimiento</button>
     </form>
   
-    <table class="table">
+    <table class="table bordered border-dark">
         <thead>
             <tr>
                 <th scope="col">Fecha</th>

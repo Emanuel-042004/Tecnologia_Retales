@@ -65,6 +65,10 @@
 
     <!--REGISTOS-->
     <div class="col-12 mt-4">
+    @if ($impresoras->isEmpty())
+        <h2 class="text-center">No hay registros disponibles.</h2>
+        <p class="text-center">(Debes Agregar una impresora para poder gestionarla)</p>
+    @else
         <div class="row">
             @foreach($impresoras as $impresora)
             <div class="col-md-4 mb-4">
@@ -148,5 +152,6 @@
         </div>
         {{$impresoras->links()}}
     </div>
+    @endif
 </div>
 @endsection

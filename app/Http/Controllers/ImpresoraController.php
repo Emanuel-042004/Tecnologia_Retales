@@ -64,6 +64,7 @@ class ImpresoraController extends Controller
 
     public function destroy(Impresora $impresora)
     {
+        \DB::table('historial')->where('serial', $impresora->serial)->delete();
         $impresora->delete();
         return redirect()->route('impresoras.index')->with('delete_success', 'Impresora Eliminada');
     }

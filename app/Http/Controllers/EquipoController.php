@@ -88,6 +88,7 @@ class EquipoController extends Controller
      */
     public function destroy(Equipo $equipo): RedirectResponse
     {
+        \DB::table('historial')->where('serial', $equipo->serial)->delete();
        
         $equipo->delete();
 

@@ -16,7 +16,18 @@ class SearchController extends Controller
     $impresoras = Impresora::filter($search)->get();
     $celulares = Celular::filter($search)->get();
     $telefonos = Telefono::filter($search)->get();
-    return view('search', compact('equipos', 'impresoras', 'celulares', 'telefonos'));
+    
+    $noResults = true;
+
+    foreach (['equipos', 'impresoras', 'celulares', 'telefonos'] as $type) {
+        if (count($$type) > 0) {
+            $noResults = false;
+            break;
+        }
+    }
+
+    
+    return view('search', compact('equipos', 'impresoras', 'celulares', 'telefonos', 'noResults'));
 }//
 }
 

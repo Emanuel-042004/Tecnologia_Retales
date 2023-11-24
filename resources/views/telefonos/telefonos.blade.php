@@ -74,6 +74,10 @@
   </script>
 
   <div class="col-12 mt-4">
+  @if ($telefonos->isEmpty())
+        <h2 class="text-center">No hay registros disponibles.</h2>
+        <p class="text-center">(Debes Agregar un Telefono para poder gestionarlo)</p>
+    @else
     <div class="row">
       @foreach($telefonos as $telefono)
       <div class="col-md-4 mb-4">
@@ -134,5 +138,6 @@
     </div>
     {{$telefonos->links()}}
   </div>
+  @endif
 </div>
 @endsection

@@ -50,6 +50,10 @@
   @endif
 
   <div class="col-12 mt-4">
+  @if ($celulares->isEmpty())
+        <h2 class="text-center">No hay registros disponibles.</h2>
+        <p class="text-center">(Debes Agregar un Celular para poder gestionarlo)</p>
+    @else
     <div class="row">
       @foreach($celulares as $celular)
       <div class="col-md-4 mb-4">
@@ -133,5 +137,6 @@
     </div>
     {{$celulares->links()}}
   </div>
+  @endif
 </div>
 @endsection

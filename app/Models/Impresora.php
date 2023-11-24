@@ -38,6 +38,7 @@ class Impresora extends Model
                   ->orWhere('modelo', 'like', '%' . $search . '%')
                   ->orWhere('proveedor', 'like', '%' . $search . '%')
                   ->orWhere('tipo', 'like', '%' . $search . '%')
+                  ->orWhere('tipo_toner', 'like', '%' . $search . '%')
                   ->orWhere('ubicacion', 'like', '%' . $search . '%');
         }
         return $query;

@@ -63,6 +63,10 @@
     @endif
     <!--REGISTROS -->
     <div class="col-12 mt-4">
+    @if ($equipos->isEmpty())
+        <h2 class="text-center">No hay registros disponibles.</h2>
+        <p class="text-center">(Debes Agregar un Equipo para poder gestionarlo)</p>
+    @else
         <div class="row">
             @foreach($equipos as $equipo)
             <div class="col-md-4">
@@ -156,5 +160,6 @@
 
         {{$equipos->links()}}
     </div>
+    @endif
 </div>
 @endsection

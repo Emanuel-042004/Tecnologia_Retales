@@ -46,12 +46,24 @@ class Equipo extends Model
     {
         if ($search) {
             $query->where('serial', 'like', '%' . $search . '%')
-                  ->orWhere('encargado', 'like', '%' . $search . '%')
-                  ->orWhere('marca', 'like', '%' . $search . '%')
-                  ->orWhere('modelo', 'like', '%' . $search . '%')
-                  ->orWhere('anydesk', 'like', '%' . $search . '%')
-                  ->orWhere('direccionIP', 'like', '%' . $search . '%')
-                  ->orWhere('ubicacion', 'like', '%' . $search . '%');
+            ->orWhere('marca', 'like', '%' . $search . '%')
+            ->orWhere('tipo_equipo', 'like', '%' . $search . '%')
+            ->orWhere('modelo', 'like', '%' . $search . '%')
+            ->orWhere('anydesk', 'like', '%' . $search . '%')
+            ->orWhere('tipo_ram', 'like', '%' . $search . '%')
+            ->orWhere('cantidad_ram', 'like', '%' . $search . '%')
+            ->orWhere('tipo_alma', 'like', '%' . $search . '%')
+            ->orWhere('cantidad_alma', 'like', '%' . $search . '%')
+            ->orWhere('licencia', 'like', '%' . $search . '%')
+            ->orWhere('tipo_so', 'like', '%' . $search . '%')
+            ->orWhere('modo_bios', 'like', '%' . $search . '%')
+            ->orWhere('version_procesador', 'like', '%' . $search . '%')
+            ->orWhere('modelo_procesador', 'like', '%' . $search . '%')
+            ->orWhere('gen_procesador', 'like', '%' . $search . '%')
+            ->orWhere('direccionIP', 'like', '%' . $search . '%')
+            ->orWhere('tarjeta_grafica', 'like', '%' . $search . '%')
+            ->orWhere('ubicacion', 'like', '%' . $search . '%')
+            ->orWhere('encargado', 'like', '%' . $search . '%');
         }
         return $query;
     }

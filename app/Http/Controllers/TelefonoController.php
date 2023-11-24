@@ -69,6 +69,7 @@ class TelefonoController extends Controller
      */
     public function destroy(Telefono $telefono)
     {
+        \DB::table('historial')->where('serial', $telefono->serial)->delete();
         $telefono->delete();
         return redirect()->route('telefonos.index')->with('delete_success', 'Celular eliminado con éxito'); // //
     }

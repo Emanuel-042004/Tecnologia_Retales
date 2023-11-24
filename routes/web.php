@@ -11,6 +11,8 @@ use App\Http\Controllers\HistorialTelefonoController;
 use App\Http\Controllers\MantenimientoController;
 use App\Http\Controllers\SearchController;
 
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -92,6 +94,3 @@ Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

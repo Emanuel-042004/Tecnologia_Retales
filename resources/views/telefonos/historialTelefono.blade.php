@@ -64,7 +64,7 @@
     });
 </script>
 <div class="container mt-4">
-    <h1 style="color: black;">Historial de Telefono : {{ $telefono->serial }}</h1>
+    <h1 style="color: black;"><strong>Historial de Telefono: {{ $telefono->serial }}</strong></h1>
     <a href="{{ route('telefonos.index') }}" class="btn btn-dark shadow">Volver</a>
 
     <div class="row" style="margin-top: 40px;">
@@ -88,6 +88,7 @@
 
      
         <div class="col-md-6">
+        @if(count($historialTelefono) > 0)
             <table class="table table-striped table-hover table-dark shadow rounded-table">
                 <thead>
                     <tr>
@@ -118,6 +119,11 @@
                     @endforeach
                 </tbody>
             </table>
+            {{$historialTelefono->links()}}
+            @else
+            <h2 class="text-center">No hay registros disponibles.</h2>
+            <p class="text-center">(Debes Agregar un historial para poder gestionarlo)</p>
+            @endif
             <div class="fixed-bottom p-3">
                 <a href="{{ route('mantenimientos.index', ['tipo' => 'telefonos', 'id' => $telefono->id]) }}" class="btn btn-primary btn-lg shadow"  style="border-radius: 50px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">

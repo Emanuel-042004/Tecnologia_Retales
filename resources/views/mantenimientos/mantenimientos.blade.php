@@ -74,7 +74,8 @@
         </div>
         <button type="submit" class="btn btn-primary">Agregar Mantenimiento</button>
     </form>
-  
+    
+    @if(count($mantenimientos) > 0)
     <table class="table bordered border-dark">
         <thead>
             <tr>
@@ -105,6 +106,10 @@
         </tbody>
     </table>
     {{ $mantenimientos->links() }}
+    @else
+            <h2 class="text-center">No hay registros disponibles.</h2>
+            <p class="text-center">(Debes Agregar un Mantenimiento para poder gestionarlo)</p>
+            @endif
     <script>
         $(document).ready(function () {
             $('.eliminar-mantenimiento').on('click', function (event) {

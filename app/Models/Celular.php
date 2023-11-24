@@ -39,6 +39,7 @@ class Celular extends Model
                   ->orWhere('encargado', 'like', '%' . $search . '%')
                   ->orWhere('ubicacion', 'like', '%' . $search . '%')
                   ->orWhere('marca', 'like', '%' . $search . '%')
+                  ->orWhere('modelo', 'like', '%' . $search . '%')
                   ->orWhere('imei_1', 'like', '%' . $search . '%')
                   ->orWhere('imei_2', 'like', '%' . $search . '%')
                   ->orWhere('sim', 'like', '%' . $search . '%')

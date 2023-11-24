@@ -64,7 +64,7 @@
     });
 </script>
 <div class="container mt-4">
-    <h1 style="color: black;">Historial de Celular : {{ $celular->serial }}</h1>
+    <h1 style="color: black;"><strong>Historial de Celular: {{ $celular->serial }}</strong></h1>
     <a href="{{ route('celulares.index') }}" class="btn btn-dark shadow">Volver</a>
 
     <div class="row" style="margin-top: 35px;">
@@ -88,6 +88,7 @@
 
         <!-- Tabla de Historial en la parte derecha -->
         <div class="col-md-6">
+        @if(count($historialCelular) > 0)
             <table class="table table-striped table-hover table-dark shadow rounded-table">
                 <thead>
                     <tr>
@@ -113,15 +114,16 @@
                                 <button type="submit"
                                     class="btn btn-danger eliminar-historial-celular shadow">Eliminar</button>
                             </form>
-
-
-
-
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+            {{$historialCelular->links()}}
+            @else
+            <h2 class="text-center">No hay registros disponibles.</h2>
+            <p class="text-center">(Debes Agregar un historial para poder gestionarlo)</p>
+            @endif
             <div class="fixed-bottom p-3">
                 <a href="{{ route('mantenimientos.index', ['tipo' => 'celulares', 'id' => $celular->id]) }}" class="btn btn-primary btn-lg shadow"  style="border-radius: 50px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
